@@ -1,9 +1,15 @@
+
 from abc import ABC, abstractmethod
 from collections.abc import Callable
 
+
 class Calculation(ABC):
-    def __init__(self, a: float, b: float,
-                 operation: Callable[[float, float], float]):
+    def __init__(
+        self,
+        a: float,
+        b: float,
+        operation: Callable[[float, float], float],
+    ):
         # Each calculation owns its two numbers and chosen operation.
         self.a = a
         self.b = b
@@ -20,6 +26,7 @@ class Calculation(ABC):
         # This is the promise; concrete classes supply the real work.
         # execute() replaces get_result() and returns the answer.
         pass
+
 
 class ArithmeticCalculation(Calculation):
     def execute(self) -> float:
